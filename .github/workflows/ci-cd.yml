@@ -19,6 +19,9 @@ jobs:
   build-and-push:
     name: Build & Push Images
     runs-on: ubuntu-latest
+    env:
+      GITOPS_REPO: ${{ secrets.GITOPS_REPO }}
+      GITOPS_PAT: ${{ secrets.GITOPS_PAT }}
     strategy:
       matrix:
         service: [backend, transactions, studentportfolio, syncer]
@@ -95,7 +98,7 @@ jobs:
             git checkout -b "${TARGET_BRANCH}"
           )
 
-          
+
       - name: Update manifests
         run: |
           cd gitops
