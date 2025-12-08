@@ -95,6 +95,7 @@ jobs:
             git checkout -b "${TARGET_BRANCH}"
           )
 
+          
       - name: Update manifests
         run: |
           cd gitops
